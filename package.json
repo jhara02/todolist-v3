@@ -4,7 +4,8 @@
   "description": "todolist-v3",
   "main": "app.js",
   "scripts": {
-    "test": "build"
+    "test": "build",
+    "start": "yarn start"
   },
   "author": "jhara02",
   "license": "ISC",
