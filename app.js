@@ -22,8 +22,6 @@ const connectDB =async()=>{
     }
 }
 
-//mongoose.connect("mongodb+srv://jmangondato02:Myra1986@cluster0.kdypku2.mongodb.net/todolistDB");
-
 const itemsSchema={
     name: String
 };
@@ -145,14 +143,6 @@ if(listName ==="To-Do List" && checkedItemId !=undefined){
    res.redirect("/" + listName);
 }  
 });
-
-//let port = process.env.PORT;
-//if(port == null || port == ""){
-    //port=3000;
-  //  }    
-//app.listen(port, function(){
- //   console.log("Server started success");
-//});
 
 connectDB().then(() =>{
     app.listen(PORT,() =>{
