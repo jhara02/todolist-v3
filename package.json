@@ -10,7 +10,7 @@
   "author": "jhara02",
   "license": "ISC",
   "engines": {
-    "node": "v16.17.0"
+    "node": "v18.16.0"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
