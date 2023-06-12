@@ -1,15 +1,28 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose= require("mongoose");
 const _ = require("lodash");
 
 const app = express();
+const PORT=process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended:true}));
 
-mongoose.connect("mongodb+srv://jmangondato02:Myra1986@cluster0.kdypku2.mongodb.net/todolistDB");
+mongoose.set('strictQuery', false);
+const connectDB =async()=>{
+    try{
+        const conn= await mongoose.connect(process.env.MONGO_URI);
+        console.log("MongoDB Connected:${conn.connection.host}");
+    }catch(error){
+        console.log(error);
+        process.exit(1);
+    }
+}
+
+//mongoose.connect("mongodb+srv://jmangondato02:Myra1986@cluster0.kdypku2.mongodb.net/todolistDB");
 
 const itemsSchema={
     name: String
@@ -132,11 +145,17 @@ if(listName ==="To-Do List" && checkedItemId !=undefined){
    res.redirect("/" + listName);
 }  
 });
-let port = process.env.PORT;
-if(port == null || port == ""){
-    port=3000;
-}
 
-app.listen(port, function(){
-    console.log("Server started success");
+//let port = process.env.PORT;
+//if(port == null || port == ""){
+    port=3000;
+  //  }    
+//app.listen(port, function(){
+ //   console.log("Server started success");
+//});
+
+connectDB().then(() =>{
+    app.listen(PORT,() =>{
+        console.log("Listening on port ${PORT}")
+    })
 });
