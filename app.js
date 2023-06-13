@@ -62,7 +62,7 @@ if(!(await Item.exists())){
     res.redirect("/");
 }else{
  res.render("list", {
-listTitle:"To-Do List", newListItems: foundItems});
+listTitle:"Your List", newListItems: foundItems});
 }
  });
 
