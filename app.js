@@ -93,7 +93,7 @@ const item = new Item ({
  name: itemName,
 });
 
-if(listName ==="To-Do List"){
+if(listName ==="Your List"){
   try{
   await item.save();
   console.log("New item has been added to the database:"+itemName);
