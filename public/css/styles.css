@@ -12,7 +12,7 @@
 
 .container{
     width:100%;
-   
+    min-height: 50vh;
     background-image: url("../css/images/img.png");
     background-size: 100%;
     padding:10px;
