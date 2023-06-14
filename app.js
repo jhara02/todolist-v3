@@ -62,7 +62,7 @@ if(!(await Item.exists())){
     res.redirect("/");
 }else{
  res.render("list", {
-listTitle:"Your List", newListItems: foundItems});
+listTitle:"ADD YOUR LIST", newListItems: foundItems});
 }
  });
 
@@ -93,7 +93,7 @@ const item = new Item ({
  name: itemName,
 });
 
-if(listName ==="Your List"){
+if(listName ==="ADD YOUR LIST"){
   try{
   await item.save();
   console.log("New item has been added to the database:"+itemName);
@@ -132,7 +132,7 @@ app.post("/delete",async function(req,res){
  
  const listName=req.body.listName;
 
-if(listName ==="To-Do List" && checkedItemId !=undefined){
+if(listName ==="ADD YOUR LIST" && checkedItemId !=undefined){
  await Item.findByIdAndRemove(checkedItemId);
  
  res.redirect("/");
